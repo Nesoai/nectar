@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nectar — eat toward balance</title>
+<meta name="description" content="Nectar pairs what you feel with what you eat: 500+ foods and drinks mapped by color, phytonutrients, how they grow, and traditional energetics — the rebalancing companion to Lumen.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f7f3ea'/%3E%3Ctext x='16' y='23' font-size='17' text-anchor='middle'%3E🍑%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#f7f3ea">
+<link rel="manifest" href='data:application/manifest+json,{"name":"Nectar","short_name":"Nectar","start_url":".","display":"standalone","background_color":"%23f7f3ea","theme_color":"%23f7f3ea","icons":[{"src":"data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 512 512%27%3E%3Crect width=%27512%27 height=%27512%27 rx=%27110%27 fill=%27%23f7f3ea%27/%3E%3Ctext x=%27256%27 y=%27360%27 font-size=%27280%27 text-anchor=%27middle%27%3E🍑%3C/text%3E%3C/svg%3E","sizes":"any","type":"image/svg+xml"}]}'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Nectar">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+const GA_ID="";
+if(GA_ID){const s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config',GA_ID);}
+</script>
+<style>
+:root{--bg:#f7f3ea;--card:#fffdf7;--line:#e7dfcd;--ink:#33402f;--dim:#6d7a67;--faint:#98a191;
+--sage:#5f8d5a;--sage-d:#3e6340;--petal:#e2769a;--sun:#e8a13c;--sky:#5b93c4;--plum:#8a63b0;
+--sh:0 1px 2px rgba(51,64,47,.05),0 8px 24px rgba(51,64,47,.07)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:Fraunces,Georgia,serif;font-weight:600;margin:0;letter-spacing:-.01em}
+button,input,select{font-family:inherit}
+a{color:var(--sage-d)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+header{position:sticky;top:0;z-index:40;background:rgba(247,243,234,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;gap:10px;height:60px}
+#logo{font-family:Fraunces,serif;font-weight:700;font-size:20px;display:flex;align-items:center;gap:8px}
+#logo b{color:var(--sage)}
+.hsp{flex:1}
+.pill{font-size:12px;font-weight:600;border:1px solid var(--line);border-radius:999px;padding:7px 13px;color:var(--dim);background:var(--card);cursor:pointer}
+.pill.pro{background:linear-gradient(90deg,var(--sun),var(--petal));color:#fff;border:none;font-weight:700}
+.pill.prodone{background:#e6f2e4;color:var(--sage-d);border-color:#bcd8b8}
+.tabs{display:flex;gap:6px}
+.tabs .pill.on{background:var(--sage);color:#fff;border-color:var(--sage)}
+.hero{padding:40px 0 8px;text-align:center}
+.hero h1{font-size:clamp(28px,5vw,44px)}
+.hero h1 em{font-style:italic;color:var(--sage)}
+.hero p{color:var(--dim);max-width:60ch;margin:12px auto 0;font-size:15.5px}
+.hero .lum{font-size:12.5px;color:var(--faint);margin-top:10px}
+section{padding:26px 0}
+.secl{font-family:Fraunces,serif;font-size:20px;margin-bottom:4px}
+.sub{color:var(--dim);font-size:13.5px;margin:0 0 16px}
+.centers{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:10px}
+.cbtn{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 10px;cursor:pointer;text-align:center;box-shadow:var(--sh);transition:.15s}
+.cbtn:hover{transform:translateY(-2px)}
+.cbtn.on{border-color:var(--cc);box-shadow:0 0 0 2px var(--cc),var(--sh)}
+.cbtn .dot{width:26px;height:26px;border-radius:50%;background:var(--cc);margin:0 auto 8px;box-shadow:inset 0 -4px 6px rgba(0,0,0,.15)}
+.cbtn .cn{font-weight:700;font-size:13px}
+.cbtn .cs{font-size:10.5px;color:var(--faint)}
+.staterow{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;justify-content:center}
+.sbtn{background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:10px 18px;font-size:13.5px;font-weight:600;color:var(--dim);cursor:pointer}
+.sbtn.on{background:var(--sage);border-color:var(--sage);color:#fff}
+.moods{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.mood{background:none;border:1px dashed var(--line);border-radius:999px;padding:8px 14px;font-size:12.5px;color:var(--dim);cursor:pointer}
+.mood:hover{border-color:var(--sage);color:var(--sage-d)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:13px}
+.vc{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--sh);position:relative}
+.vc .ve{font-size:34px;line-height:1}
+.vc h4{font-size:16.5px;margin:8px 0 2px}
+.vc .vm{font-size:11px;color:var(--faint);display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.vc .cdot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.vc p{font-size:12.5px;color:var(--dim);margin:9px 0 0;line-height:1.55}
+.vc .why{margin-top:9px;padding-top:9px;border-top:1px dashed var(--line);font-size:12px;color:var(--sage-d);font-weight:600}
+.vc .caut{position:absolute;top:12px;right:12px;font-size:10px;font-weight:700;background:#fbeee2;color:#b06a2a;border-radius:999px;padding:3px 8px}
+.tag{display:inline-block;font-size:10px;font-weight:700;border-radius:999px;padding:2px 8px;background:#eef3e9;color:var(--sage-d);margin:2px 3px 0 0}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
+.filters select,.filters input{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:13.5px;color:var(--ink);outline:none}
+.filters input{flex:1;min-width:150px}
+.count{font-size:12px;color:var(--faint);margin-left:auto}
+.plate{background:linear-gradient(140deg,#fffdf7,#f4efdf);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--sh)}
+.plate .prow{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-top:1px dashed var(--line)}
+.plate .prow:first-of-type{border-top:none}
+.plate .pt{font-size:22px;flex:none}
+.plate b{display:block;font-size:14px}
+.plate span{font-size:12.5px;color:var(--dim)}
+.bigbtn{background:var(--sage);color:#fff;border:none;border-radius:999px;padding:13px 24px;font-size:15px;font-weight:700;cursor:pointer;box-shadow:var(--sh)}
+.bigbtn:hover{background:var(--sage-d)}
+.locknote{background:linear-gradient(120deg,#fdf3e3,#fbe9ef);border:1px solid #eed9b8;border-radius:16px;padding:16px;font-size:13.5px;color:#8a6430}
+.locknote b{color:#b06a2a}
+.lockbtn{display:inline-block;margin-top:10px;background:linear-gradient(90deg,var(--sun),var(--petal));color:#fff;font-weight:700;font-size:13px;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;text-decoration:none}
+#modal{position:fixed;inset:0;z-index:80;display:none;place-items:center;background:rgba(51,64,47,.45)}
+#modal.on{display:grid}
+#mcard{width:min(94vw,440px);max-height:86vh;overflow-y:auto;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px}
+#mcard h2{font-size:21px;margin-bottom:6px}
+#mcard p{font-size:13.5px;color:var(--dim)}
+.closex{float:right;background:none;border:none;color:var(--faint);font-size:22px;cursor:pointer}
+.tin{width:100%;background:#fff;border:1px solid var(--line);border-radius:12px;color:var(--ink);padding:11px 13px;font-size:14px;outline:none}
+#toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(90px);background:var(--ink);color:#fff;border-radius:999px;padding:11px 20px;font-size:13.5px;font-weight:600;z-index:90;transition:transform .25s}
+#toast.on{transform:translateX(-50%) translateY(0)}
+footer{padding:34px 0 56px;text-align:center;color:var(--faint);font-size:11.5px;border-top:1px solid var(--line);margin-top:30px;line-height:1.7}
+.view{display:none}.view.on{display:block}
+@media(max-width:560px){.hero{padding-top:26px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div id="logo">🍑 <span>Nec<b>tar</b></span></div>
+  <div class="tabs">
+    <button class="pill on" id="tabBal">🌿 Rebalance</button>
+    <button class="pill" id="tabLib">📚 Library</button>
+  </div>
+  <div class="hsp"></div>
+  <button class="pill pro" id="proBtn">Go Pro</button>
+</div></header>
+
+<div class="wrap">
+  <div class="view on" id="v-bal">
+    <div class="hero">
+      <h1>Eat toward <em>balance.</em></h1>
+      <p>Every food carries signals — its color, its phytonutrients, whether it grew under the earth or toward the sun, whether tradition calls it warming or cooling. Tell Nectar how you feel; it tells you what to put on the plate.</p>
+      <p class="lum">Not sure what's out of balance? <a href="https://nesoai.github.io/lumen/" target="_blank" rel="noopener">Learn your centers in Lumen ↗</a> — then come back here to feed them.</p>
+    </div>
+    <section>
+      <div class="secl">1 · Which center needs tending?</div>
+      <div class="centers" id="centerRow"></div>
+      <div class="staterow" id="stateRow">
+        <button class="sbtn on" data-v="low">Depleted / low</button>
+        <button class="sbtn" data-v="high">Overactive / restless</button>
+        <button class="sbtn" data-v="keep">Feeling good — maintain</button>
+      </div>
+      <div class="moods" id="moodRow"></div>
+    </section>
+    <section>
+      <div class="secl">2 · Your victuals right now</div>
+      <p class="sub" id="balSub"></p>
+      <div class="grid" id="balGrid"></div>
+    </section>
+    <section>
+      <div class="secl">3 · A balance plate for today</div>
+      <p class="sub">Dawn, midday, and dusk — regenerate until it sounds delicious.</p>
+      <div class="plate" id="plateBox"></div>
+      <div style="text-align:center;margin-top:14px"><button class="bigbtn" id="plateBtn">🍽 New plate</button>
+      <button class="bigbtn" id="weekBtn" style="background:var(--plum)">📅 7-day plan <span id="weekLock">🔒</span></button></div>
+    </section>
+    <section id="upsellSec"></section>
+  </div>
+
+  <div class="view" id="v-lib">
+    <div class="hero" style="padding-bottom:0">
+      <h1>The <em>library.</em></h1>
+      <p id="libCount"></p>
+    </div>
+    <section>
+      <div class="filters">
+        <input id="q" placeholder="Search a food or drink…">
+        <select id="fCat"><option value="">All categories</option></select>
+        <select id="fColor"><option value="">All colors</option></select>
+        <select id="fCen"><option value="">All centers</option></select>
+        <select id="fEn"><option value="">Any energy</option><option value="warm">Warming</option><option value="cool">Cooling</option><option value="neutral">Neutral</option></select>
+        <span class="count" id="resCount"></span>
+      </div>
+      <div class="grid" id="libGrid"></div>
+      <div style="text-align:center;margin:18px 0"><button class="bigbtn" id="moreBtn">Show more ↓</button></div>
+    </section>
+  </div>
+</div>
+
+<footer><div class="wrap">
+  Nectar · a <a href="https://nesoai.github.io/learning-studio/">Boundless Learning Studio</a> app · sister of <a href="https://nesoai.github.io/lumen/">Lumen</a> · v1.0<br>
+  Nectar blends traditional food-energetics frameworks with modern phytonutrient science for education and reflection — it is <b>not medical advice</b>, does not diagnose or treat any condition, and is no substitute for your doctor or dietitian. If you're pregnant, nursing, or on medications, check herbs and large dietary changes with a professional first (some foods, like grapefruit, genuinely interact with medicines). Buy from stores and growers — Nectar never teaches wild foraging.
+</div></footer>
+
+<div id="modal"><div id="mcard"><button class="closex" id="mClose">×</button><h2 id="mTitle"></h2><div id="mBody"></div></div></div>
+<div id="toast"></div>
+
+<script>
+/* ============ NECTAR v1.0 — config ============ */
+const BUY_URL="#";        // ← Gumroad / Stripe payment link for Pro
+const PRICE_TXT="$14 one-time";
+
+/* ============ DATA — compact rows: [name, emoji, color, grow, cat, energy, flags] ============
+ color: red|orange|yellow|green|blue|purple|white|brown|pink|black
+ grow: root|leaf|stalk|fruit|vine|bush|flower|fungus|seed|aquatic|brew
+ energy: warm|cool|neutral · flags: p=pregnancy-caution m=med-interaction o=oxalate c=caffeine k=cook-first */
+const ROWS=[
+/* --- fruits --- */
+["Red apple","🍎","red","fruit","fruit","cool",""],["Green apple","🍏","green","fruit","fruit","cool",""],["Golden apple","🍎","yellow","fruit","fruit","cool",""],["Banana","🍌","yellow","fruit","fruit","cool",""],["Red banana","🍌","red","fruit","fruit","cool",""],["Plantain (cooked)","🍌","yellow","fruit","fruit","warm",""],["Orange","🍊","orange","fruit","fruit","cool",""],["Blood orange","🍊","red","fruit","fruit","cool",""],["Mandarin","🍊","orange","fruit","fruit","cool",""],["Clementine","🍊","orange","fruit","fruit","cool",""],["Tangerine","🍊","orange","fruit","fruit","cool",""],["Grapefruit","🍊","pink","fruit","fruit","cool","m"],["Pomelo","🍊","yellow","fruit","fruit","cool","m"],["Lemon","🍋","yellow","fruit","fruit","cool",""],["Lime","🍋","green","fruit","fruit","cool",""],["Kumquat","🍊","orange","fruit","fruit","neutral",""],["Peach","🍑","orange","fruit","fruit","cool",""],["Nectarine","🍑","orange","fruit","fruit","cool",""],["Apricot","🍑","orange","fruit","fruit","neutral",""],["Plum","🍑","purple","fruit","fruit","cool",""],["Cherry","🍒","red","fruit","fruit","neutral",""],["Sour cherry","🍒","red","fruit","fruit","cool",""],["Strawberry","🍓","red","bush","fruit","cool",""],["Blueberry","🫐","blue","bush","fruit","cool",""],["Blackberry","🫐","black","bush","fruit","cool",""],["Raspberry","🫐","red","bush","fruit","cool",""],["Black raspberry","🫐","black","bush","fruit","cool",""],["Cranberry","🫐","red","bush","fruit","cool",""],["Gooseberry","🫐","green","bush","fruit","cool",""],["Currant (black)","🫐","black","bush","fruit","cool",""],["Currant (red)","🫐","red","bush","fruit","cool",""],["Elderberry (cooked)","🫐","black","bush","fruit","cool","k"],["Mulberry","🫐","purple","fruit","fruit","cool",""],["Goji berry","🫐","red","bush","fruit","neutral","m"],["Açaí","🫐","purple","fruit","fruit","cool",""],["Grape (red)","🍇","red","vine","fruit","cool",""],["Grape (green)","🍇","green","vine","fruit","cool",""],["Grape (black)","🍇","black","vine","fruit","cool",""],["Watermelon","🍉","red","vine","fruit","cool",""],["Cantaloupe","🍈","orange","vine","fruit","cool",""],["Honeydew","🍈","green","vine","fruit","cool",""],["Mango","🥭","orange","fruit","fruit","warm",""],["Papaya","🥭","orange","fruit","fruit","neutral",""],["Pineapple","🍍","yellow","stalk","fruit","neutral",""],["Kiwi","🥝","green","vine","fruit","cool",""],["Golden kiwi","🥝","yellow","vine","fruit","cool",""],["Pomegranate","🍎","red","fruit","fruit","cool",""],["Fig","🍑","purple","fruit","fruit","neutral",""],["Date","🍑","brown","fruit","fruit","warm",""],["Persimmon","🍊","orange","fruit","fruit","cool",""],["Guava","🍈","pink","fruit","fruit","neutral",""],["Passion fruit","🍈","purple","vine","fruit","cool",""],["Dragon fruit","🍈","pink","stalk","fruit","cool",""],["Lychee","🍒","pink","fruit","fruit","warm",""],["Longan","🍒","brown","fruit","fruit","warm",""],["Rambutan","🍒","red","fruit","fruit","warm",""],["Starfruit","⭐","yellow","fruit","fruit","cool","m"],["Jackfruit","🍈","yellow","fruit","fruit","neutral",""],["Durian","🍈","yellow","fruit","fruit","warm",""],["Soursop","🍈","green","fruit","fruit","cool",""],["Tamarind","🍑","brown","fruit","fruit","cool",""],["Avocado","🥑","green","fruit","fruit","cool",""],["Olive (green)","🫒","green","fruit","fruit","neutral",""],["Olive (black)","🫒","black","fruit","fruit","neutral",""],["Coconut (young)","🥥","white","fruit","fruit","cool",""],["Pear","🍐","green","fruit","fruit","cool",""],["Asian pear","🍐","yellow","fruit","fruit","cool",""],["Quince (cooked)","🍐","yellow","fruit","fruit","neutral","k"],["Cactus pear","🍈","pink","stalk","fruit","cool",""],["Loquat","🍑","orange","fruit","fruit","cool",""],["Sapote","🍈","brown","fruit","fruit","neutral",""],["Cherimoya","🍈","green","fruit","fruit","cool",""],["Breadfruit (cooked)","🍈","green","fruit","fruit","neutral","k"],["Banana (green, cooked)","🍌","green","fruit","fruit","neutral","k"],
+/* --- vegetables --- */
+["Carrot","🥕","orange","root","vegetable","neutral",""],["Purple carrot","🥕","purple","root","vegetable","neutral",""],["Beet","🍠","red","root","vegetable","neutral","o"],["Golden beet","🍠","yellow","root","vegetable","neutral",""],["Sweet potato","🍠","orange","root","vegetable","warm",""],["Purple sweet potato","🍠","purple","root","vegetable","warm",""],["Potato","🥔","brown","root","vegetable","neutral",""],["Purple potato","🥔","purple","root","vegetable","neutral",""],["Yam","🍠","white","root","vegetable","warm",""],["Cassava (cooked)","🥔","white","root","vegetable","neutral","k"],["Taro (cooked)","🥔","white","root","vegetable","neutral","k"],["Turnip","🥔","white","root","vegetable","cool",""],["Rutabaga","🥔","yellow","root","vegetable","neutral",""],["Parsnip","🥕","white","root","vegetable","warm",""],["Radish","🍅","red","root","vegetable","cool",""],["Daikon","🥕","white","root","vegetable","cool",""],["Black radish","🥕","black","root","vegetable","warm",""],["Horseradish","🥕","white","root","vegetable","warm",""],["Ginger root","🫚","yellow","root","vegetable","warm",""],["Turmeric root","🫚","orange","root","vegetable","warm","m"],["Galangal","🫚","white","root","vegetable","warm",""],["Burdock root","🥕","brown","root","vegetable","cool",""],["Lotus root","🥕","white","aquatic","vegetable","cool",""],["Jerusalem artichoke","🥔","brown","root","vegetable","neutral",""],["Jicama","🥔","white","root","vegetable","cool",""],["Celeriac","🥔","white","root","vegetable","neutral",""],["Kohlrabi","🥬","green","stalk","vegetable","cool",""],["Onion (yellow)","🧅","yellow","root","vegetable","warm",""],["Red onion","🧅","purple","root","vegetable","warm",""],["Shallot","🧅","purple","root","vegetable","warm",""],["Garlic","🧄","white","root","vegetable","warm","m"],["Leek","🥬","green","stalk","vegetable","warm",""],["Scallion","🥬","green","leaf","vegetable","warm",""],["Fennel bulb","🥬","white","stalk","vegetable","cool",""],["Celery","🥬","green","stalk","vegetable","cool",""],["Asparagus","🥦","green","stalk","vegetable","cool",""],["White asparagus","🥦","white","stalk","vegetable","cool",""],["Rhubarb (cooked)","🥬","red","stalk","vegetable","cool","ko"],["Broccoli","🥦","green","flower","vegetable","cool",""],["Broccolini","🥦","green","flower","vegetable","cool",""],["Cauliflower","🥦","white","flower","vegetable","neutral",""],["Purple cauliflower","🥦","purple","flower","vegetable","neutral",""],["Romanesco","🥦","green","flower","vegetable","neutral",""],["Artichoke","🥬","green","flower","vegetable","cool",""],["Brussels sprouts","🥬","green","bush","vegetable","neutral",""],["Cabbage (green)","🥬","green","leaf","vegetable","cool",""],["Red cabbage","🥬","purple","leaf","vegetable","cool",""],["Napa cabbage","🥬","green","leaf","vegetable","cool",""],["Bok choy","🥬","green","leaf","vegetable","cool",""],["Kale","🥬","green","leaf","vegetable","cool",""],["Lacinato kale","🥬","green","leaf","vegetable","cool",""],["Collard greens","🥬","green","leaf","vegetable","cool",""],["Mustard greens","🥬","green","leaf","vegetable","warm",""],["Turnip greens","🥬","green","leaf","vegetable","cool",""],["Spinach","🥬","green","leaf","vegetable","cool","o"],["Swiss chard","🥬","green","leaf","vegetable","cool","o"],["Rainbow chard","🥬","red","leaf","vegetable","cool","o"],["Arugula","🥬","green","leaf","vegetable","warm",""],["Watercress","🥬","green","aquatic","vegetable","cool",""],["Romaine","🥬","green","leaf","vegetable","cool",""],["Butter lettuce","🥬","green","leaf","vegetable","cool",""],["Red leaf lettuce","🥬","red","leaf","vegetable","cool",""],["Iceberg lettuce","🥬","green","leaf","vegetable","cool",""],["Endive","🥬","white","leaf","vegetable","cool",""],["Radicchio","🥬","purple","leaf","vegetable","cool",""],["Escarole","🥬","green","leaf","vegetable","cool",""],["Dandelion greens","🥬","green","leaf","vegetable","cool",""],["Purslane","🥬","green","leaf","vegetable","cool",""],["Tomato","🍅","red","vine","vegetable","cool",""],["Cherry tomato","🍅","red","vine","vegetable","cool",""],["Yellow tomato","🍅","yellow","vine","vegetable","cool",""],["Heirloom tomato","🍅","purple","vine","vegetable","cool",""],["Bell pepper (red)","🫑","red","bush","vegetable","neutral",""],["Bell pepper (green)","🫑","green","bush","vegetable","neutral",""],["Bell pepper (yellow)","🫑","yellow","bush","vegetable","neutral",""],["Bell pepper (orange)","🫑","orange","bush","vegetable","neutral",""],["Cucumber","🥒","green","vine","vegetable","cool",""],["Zucchini","🥒","green","vine","vegetable","cool",""],["Yellow squash","🥒","yellow","vine","vegetable","cool",""],["Butternut squash","🎃","orange","vine","vegetable","warm",""],["Acorn squash","🎃","green","vine","vegetable","warm",""],["Kabocha","🎃","orange","vine","vegetable","warm",""],["Pumpkin","🎃","orange","vine","vegetable","warm",""],["Spaghetti squash","🎃","yellow","vine","vegetable","neutral",""],["Delicata squash","🎃","yellow","vine","vegetable","warm",""],["Eggplant","🍆","purple","bush","vegetable","cool",""],["Japanese eggplant","🍆","purple","bush","vegetable","cool",""],["Okra","🥒","green","bush","vegetable","cool",""],["Green beans","🫛","green","vine","vegetable","neutral",""],["Snap peas","🫛","green","vine","vegetable","neutral",""],["Snow peas","🫛","green","vine","vegetable","cool",""],["Corn","🌽","yellow","stalk","vegetable","neutral",""],["Bamboo shoots","🎋","white","stalk","vegetable","cool",""],["Bitter melon","🥒","green","vine","vegetable","cool","p"],["Chayote","🥒","green","vine","vegetable","cool",""],["Tomatillo","🍅","green","bush","vegetable","cool",""],["Nopal cactus","🌵","green","stalk","vegetable","cool",""],
+/* --- sea vegetables & sprouts --- */
+["Nori","🌊","black","aquatic","sea vegetable","cool",""],["Kombu","🌊","brown","aquatic","sea vegetable","cool",""],["Wakame","🌊","green","aquatic","sea vegetable","cool",""],["Dulse","🌊","red","aquatic","sea vegetable","cool",""],["Hijiki","🌊","black","aquatic","sea vegetable","cool",""],["Sea moss","🌊","white","aquatic","sea vegetable","cool",""],["Kelp","🌊","brown","aquatic","sea vegetable","cool",""],["Spirulina","🌊","green","aquatic","sea vegetable","cool",""],["Chlorella","🌊","green","aquatic","sea vegetable","cool",""],["Alfalfa sprouts","🌱","green","seed","sprout","cool",""],["Broccoli sprouts","🌱","green","seed","sprout","cool",""],["Mung bean sprouts","🌱","white","seed","sprout","cool",""],["Sunflower sprouts","🌱","green","seed","sprout","neutral",""],["Pea shoots","🌱","green","seed","sprout","cool",""],["Radish sprouts","🌱","pink","seed","sprout","warm",""],["Lentil sprouts","🌱","brown","seed","sprout","neutral",""],["Wheatgrass","🌱","green","seed","sprout","cool",""],
+/* --- mushrooms --- */
+["White button mushroom","🍄","white","fungus","mushroom","cool",""],["Cremini","🍄","brown","fungus","mushroom","neutral",""],["Portobello","🍄","brown","fungus","mushroom","neutral",""],["Shiitake","🍄","brown","fungus","mushroom","neutral",""],["Oyster mushroom","🍄","white","fungus","mushroom","cool",""],["King oyster","🍄","white","fungus","mushroom","neutral",""],["Enoki","🍄","white","fungus","mushroom","cool",""],["Maitake","🍄","brown","fungus","mushroom","neutral",""],["Lion's mane","🍄","white","fungus","mushroom","neutral",""],["Reishi (brewed)","🍄","red","fungus","mushroom","neutral","m"],["Chaga (brewed)","🍄","black","fungus","mushroom","neutral","m"],["Cordyceps (brewed)","🍄","orange","fungus","mushroom","warm","m"],["Turkey tail (brewed)","🍄","brown","fungus","mushroom","neutral","m"],["Chanterelle","🍄","yellow","fungus","mushroom","neutral",""],["Morel (cooked)","🍄","brown","fungus","mushroom","neutral","k"],["Porcini","🍄","brown","fungus","mushroom","neutral",""],["Black trumpet","🍄","black","fungus","mushroom","neutral",""],["Wood ear","🍄","black","fungus","mushroom","cool",""],
+/* --- herbs --- */
+["Basil","🌿","green","leaf","herb","warm",""],["Holy basil (tulsi)","🌿","green","leaf","herb","warm","p"],["Thai basil","🌿","green","leaf","herb","warm",""],["Mint","🌿","green","leaf","herb","cool",""],["Peppermint","🌿","green","leaf","herb","cool",""],["Spearmint","🌿","green","leaf","herb","cool",""],["Cilantro","🌿","green","leaf","herb","cool",""],["Parsley","🌿","green","leaf","herb","neutral","p"],["Dill","🌿","green","leaf","herb","warm",""],["Chives","🌿","green","leaf","herb","warm",""],["Oregano","🌿","green","leaf","herb","warm",""],["Marjoram","🌿","green","leaf","herb","warm",""],["Thyme","🌿","green","leaf","herb","warm",""],["Lemon thyme","🌿","green","leaf","herb","warm",""],["Rosemary","🌿","green","bush","herb","warm","p"],["Sage","🌿","green","leaf","herb","warm","p"],["Tarragon","🌿","green","leaf","herb","warm",""],["Bay leaf","🌿","green","leaf","herb","warm",""],["Lemongrass","🌿","green","stalk","herb","cool",""],["Lemon balm","🌿","green","leaf","herb","cool",""],["Lemon verbena","🌿","green","leaf","herb","cool",""],["Curry leaf","🌿","green","leaf","herb","warm",""],["Kaffir lime leaf","🌿","green","leaf","herb","warm",""],["Shiso","🌿","purple","leaf","herb","warm",""],["Epazote","🌿","green","leaf","herb","warm","p"],["Sorrel","🌿","green","leaf","herb","cool","o"],["Chervil","🌿","green","leaf","herb","neutral",""],["Savory","🌿","green","leaf","herb","warm",""],["Fenugreek leaf","🌿","green","leaf","herb","warm","p"],["Nettle (cooked)","🌿","green","leaf","herb","cool","k"],["Moringa","🌿","green","leaf","herb","neutral","p"],["Aloe vera (inner gel)","🌿","green","leaf","herb","cool","p"],
+/* --- flowers --- */
+["Chamomile","🌼","yellow","flower","flower","cool","p"],["Lavender","💜","purple","flower","flower","cool",""],["Rose petal","🌹","pink","flower","flower","cool",""],["Hibiscus","🌺","red","flower","flower","cool","m"],["Calendula","🌼","orange","flower","flower","neutral","p"],["Elderflower","🌼","white","flower","flower","cool",""],["Jasmine flower","🌼","white","flower","flower","cool",""],["Nasturtium","🌺","orange","flower","flower","warm",""],["Violet","💜","purple","flower","flower","cool",""],["Pansy","🌼","purple","flower","flower","cool",""],["Squash blossom","🌼","yellow","flower","flower","neutral",""],["Dandelion flower","🌼","yellow","flower","flower","cool",""],["Chrysanthemum","🌼","yellow","flower","flower","cool",""],["Honeysuckle","🌼","white","flower","flower","cool",""],["Saffron","🌺","red","flower","flower","warm","p"],["Butterfly pea flower","💙","blue","flower","flower","cool",""],["Marigold petals","🌼","orange","flower","flower","neutral",""],["Borage flower","💙","blue","flower","flower","cool","p"],
+/* --- spices --- */
+["Cinnamon","🟤","brown","fruit","spice","warm","m"],["Ceylon cinnamon","🟤","brown","fruit","spice","warm",""],["Clove","🟤","brown","flower","spice","warm",""],["Nutmeg","🟤","brown","seed","spice","warm","p"],["Cardamom","🟢","green","seed","spice","warm",""],["Black cardamom","🟤","black","seed","spice","warm",""],["Black pepper","⚫","black","vine","spice","warm",""],["White pepper","⚪","white","vine","spice","warm",""],["Pink peppercorn","🩷","pink","fruit","spice","warm",""],["Cayenne","🌶️","red","bush","spice","warm",""],["Paprika","🌶️","red","bush","spice","warm",""],["Smoked paprika","🌶️","red","bush","spice","warm",""],["Chili flakes","🌶️","red","bush","spice","warm",""],["Chipotle","🌶️","brown","bush","spice","warm",""],["Ancho chile","🌶️","red","bush","spice","warm",""],["Ginger (dried)","🫚","yellow","root","spice","warm",""],["Turmeric (ground)","🟠","orange","root","spice","warm","m"],["Cumin","🟤","brown","seed","spice","warm",""],["Coriander seed","🟤","brown","seed","spice","neutral",""],["Fennel seed","🟢","green","seed","spice","warm",""],["Anise seed","🟤","brown","seed","spice","warm",""],["Star anise","⭐","brown","fruit","spice","warm",""],["Caraway","🟤","brown","seed","spice","warm",""],["Mustard seed","🟡","yellow","seed","spice","warm",""],["Fenugreek seed","🟡","yellow","seed","spice","warm","p"],["Ajwain","🟤","brown","seed","spice","warm","p"],["Nigella seed","⚫","black","seed","spice","warm",""],["Sumac","🔴","red","fruit","spice","cool",""],["Za'atar blend","🌿","green","leaf","spice","warm",""],["Allspice","🟤","brown","fruit","spice","warm",""],["Vanilla bean","🟤","brown","vine","spice","warm",""],["Cacao (raw)","🍫","brown","fruit","spice","warm","c"],["Carob","🍫","brown","fruit","spice","neutral",""],["Wasabi","🟢","green","root","spice","warm",""],["Grains of paradise","🟤","brown","seed","spice","warm",""],["Long pepper","⚫","black","vine","spice","warm",""],["Szechuan peppercorn","🔴","red","fruit","spice","warm",""],["Juniper berry","🫐","blue","bush","spice","warm","p"],["Licorice root","🟤","brown","root","spice","warm","pm"],["Sarsaparilla root","🟤","brown","root","spice","neutral",""],
+/* --- legumes, grains, nuts & seeds --- */
+["Lentils (green)","🫘","green","seed","legume","neutral",""],["Lentils (red)","🫘","red","seed","legume","neutral",""],["Black beluga lentils","🫘","black","seed","legume","neutral",""],["Chickpeas","🫘","yellow","seed","legume","neutral",""],["Black beans","🫘","black","seed","legume","neutral","k"],["Kidney beans (cooked)","🫘","red","seed","legume","neutral","k"],["Pinto beans","🫘","brown","seed","legume","neutral","k"],["Navy beans","🫘","white","seed","legume","neutral","k"],["Adzuki beans","🫘","red","seed","legume","neutral",""],["Mung beans","🫘","green","seed","legume","cool",""],["Black-eyed peas","🫘","white","seed","legume","neutral",""],["Fava beans","🫘","green","seed","legume","neutral","k"],["Edamame","🫛","green","seed","legume","cool",""],["Split peas","🫛","yellow","seed","legume","neutral",""],["Peanut","🥜","brown","root","legume","warm",""],["Lupini beans","🫘","yellow","seed","legume","neutral","k"],["Oats","🌾","brown","seed","grain","warm",""],["Steel-cut oats","🌾","brown","seed","grain","warm",""],["Brown rice","🍚","brown","seed","grain","neutral",""],["White rice","🍚","white","seed","grain","neutral",""],["Black rice","🍚","black","seed","grain","neutral",""],["Red rice","🍚","red","seed","grain","neutral",""],["Wild rice","🍚","black","aquatic","grain","cool",""],["Quinoa","🌾","yellow","seed","grain","warm",""],["Red quinoa","🌾","red","seed","grain","warm",""],["Amaranth","🌾","yellow","seed","grain","warm",""],["Millet","🌾","yellow","seed","grain","warm",""],["Buckwheat","🌾","brown","seed","grain","cool",""],["Barley","🌾","brown","seed","grain","cool",""],["Farro","🌾","brown","seed","grain","neutral",""],["Spelt","🌾","brown","seed","grain","neutral",""],["Teff","🌾","brown","seed","grain","warm",""],["Rye","🌾","brown","seed","grain","cool",""],["Sorghum","🌾","brown","seed","grain","neutral",""],["Freekeh","🌾","green","seed","grain","neutral",""],["Corn (dried/masa)","🌽","yellow","seed","grain","neutral",""],["Almonds","🥜","brown","seed","nut","warm",""],["Walnuts","🥜","brown","seed","nut","warm",""],["Pecans","🥜","brown","seed","nut","warm",""],["Cashews","🥜","white","seed","nut","warm",""],["Pistachios","🥜","green","seed","nut","warm",""],["Brazil nuts","🥜","brown","seed","nut","warm","m"],["Hazelnuts","🥜","brown","seed","nut","warm",""],["Macadamia","🥜","white","seed","nut","warm",""],["Pine nuts","🥜","white","seed","nut","warm",""],["Chestnuts (cooked)","🌰","brown","seed","nut","warm","k"],["Chia seeds","⚫","black","seed","seed","cool",""],["Flax seeds","🟤","brown","seed","seed","cool",""],["Hemp seeds","🌱","green","seed","seed","neutral",""],["Pumpkin seeds","🎃","green","seed","seed","neutral",""],["Sunflower seeds","🌻","brown","seed","seed","neutral",""],["Sesame seeds","⚪","white","seed","seed","warm",""],["Black sesame","⚫","black","seed","seed","warm",""],["Poppy seeds","⚫","black","seed","seed","cool","m"],["Watermelon seeds","🍉","brown","seed","seed","neutral",""],
+/* --- teas & brews --- */
+["Green tea","🍵","green","brew","tea","cool","c"],["Matcha","🍵","green","brew","tea","cool","c"],["Sencha","🍵","green","brew","tea","cool","c"],["Jasmine green tea","🍵","green","brew","tea","cool","c"],["White tea","🍵","white","brew","tea","cool","c"],["Silver needle tea","🍵","white","brew","tea","cool","c"],["Black tea","🍵","black","brew","tea","warm","c"],["Earl Grey","🍵","black","brew","tea","warm","c"],["Assam","🍵","black","brew","tea","warm","c"],["Darjeeling","🍵","black","brew","tea","warm","c"],["Oolong tea","🍵","brown","brew","tea","neutral","c"],["Pu-erh tea","🍵","black","brew","tea","warm","c"],["Yerba mate","🧉","green","brew","tea","warm","c"],["Rooibos","🍵","red","brew","tea","neutral",""],["Green rooibos","🍵","green","brew","tea","cool",""],["Honeybush tea","🍵","brown","brew","tea","neutral",""],["Chai (spiced tea)","🍵","brown","brew","tea","warm","c"],["Genmaicha","🍵","green","brew","tea","neutral","c"],["Hojicha","🍵","brown","brew","tea","neutral","c"],["Kukicha (twig tea)","🍵","brown","brew","tea","neutral",""],
+/* --- herbal infusions --- */
+["Chamomile infusion","🌼","yellow","brew","infusion","cool","p"],["Peppermint infusion","🌿","green","brew","infusion","cool",""],["Ginger infusion","🫚","yellow","brew","infusion","warm",""],["Ginger-lemon infusion","🍋","yellow","brew","infusion","warm",""],["Hibiscus infusion","🌺","red","brew","infusion","cool","m"],["Rosehip infusion","🌹","red","brew","infusion","cool",""],["Lemon balm infusion","🌿","green","brew","infusion","cool",""],["Lemongrass infusion","🌿","green","brew","infusion","cool",""],["Lavender infusion","💜","purple","brew","infusion","cool",""],["Tulsi (holy basil) infusion","🌿","green","brew","infusion","warm","p"],["Fennel seed infusion","🟢","green","brew","infusion","warm",""],["Licorice infusion","🟤","brown","brew","infusion","warm","pm"],["Nettle infusion","🌿","green","brew","infusion","cool",""],["Dandelion root brew","🌼","brown","brew","infusion","cool",""],["Chicory root brew","🟤","brown","brew","infusion","cool",""],["Cinnamon infusion","🟤","brown","brew","infusion","warm",""],["Turmeric-ginger infusion","🟠","orange","brew","infusion","warm","m"],["Golden milk","🟠","orange","brew","infusion","warm",""],["Elderflower infusion","🌼","white","brew","infusion","cool",""],["Rose petal infusion","🌹","pink","brew","infusion","cool",""],["Butterfly pea infusion","💙","blue","brew","infusion","cool",""],["Chrysanthemum infusion","🌼","yellow","brew","infusion","cool",""],["Sage infusion","🌿","green","brew","infusion","warm","p"],["Thyme infusion","🌿","green","brew","infusion","warm",""],["Raspberry leaf infusion","🌿","green","brew","infusion","cool","p"],["Mugwort infusion","🌿","green","brew","infusion","warm","p"],["Cardamom infusion","🟢","green","brew","infusion","warm",""],["Star anise infusion","⭐","brown","brew","infusion","warm",""],["Barley tea (mugicha)","🌾","brown","brew","infusion","cool",""],["Corn silk infusion","🌽","yellow","brew","infusion","cool",""],
+/* --- waters & other drinks --- */
+["Spring water","💧","white","aquatic","water","cool",""],["Mineral water","💧","white","aquatic","water","cool",""],["Alkaline water","💧","white","aquatic","water","cool",""],["Sparkling water","🫧","white","aquatic","water","cool",""],["Cucumber water","🥒","green","aquatic","water","cool",""],["Lemon water","🍋","yellow","aquatic","water","cool",""],["Lime water","🍋","green","aquatic","water","cool",""],["Mint water","🌿","green","aquatic","water","cool",""],["Rose water (culinary)","🌹","pink","aquatic","water","cool",""],["Orange blossom water","🌼","white","aquatic","water","cool",""],["Coconut water","🥥","white","fruit","water","cool",""],["Watermelon juice","🍉","red","vine","juice","cool",""],["Beet juice","🍠","red","root","juice","neutral","o"],["Carrot juice","🥕","orange","root","juice","neutral",""],["Celery juice","🥬","green","stalk","juice","cool",""],["Green juice","🥬","green","leaf","juice","cool",""],["Pomegranate juice","🍎","red","fruit","juice","cool",""],["Tart cherry juice","🍒","red","fruit","juice","cool",""],["Aloe water","🌿","green","leaf","juice","cool","p"],["Sugarcane juice","🎋","yellow","stalk","juice","cool",""],["Kombucha","🫧","brown","brew","ferment","cool",""],["Water kefir","🫧","white","brew","ferment","cool",""],["Beet kvass","🍠","red","brew","ferment","cool",""],["Kimchi","🥬","red","leaf","ferment","warm",""],["Sauerkraut","🥬","green","leaf","ferment","cool",""],["Miso","🫘","brown","seed","ferment","warm",""],["Tempeh","🫘","brown","seed","ferment","neutral",""],["Natto","🫘","brown","seed","ferment","warm",""],["Yogurt (plain)","🥛","white","brew","ferment","cool",""],["Kefir","🥛","white","brew","ferment","cool",""],
+/* --- honeys & saps --- */
+["Raw honey","🍯","yellow","flower","sweet","warm",""],["Manuka honey","🍯","brown","flower","sweet","warm",""],["Maple syrup","🍁","brown","fruit","sweet","warm",""],["Blackstrap molasses","🍯","black","stalk","sweet","warm",""],["Date syrup","🍯","brown","fruit","sweet","warm",""],["Coconut nectar","🍯","brown","flower","sweet","neutral",""],
+["Fuji apple","🍎","red","fruit","fruit","cool",""],["Gala apple","🍎","red","fruit","fruit","cool",""],["Honeycrisp apple","🍎","red","fruit","fruit","cool",""],["Granny Smith apple","🍏","green","fruit","fruit","cool",""],["McIntosh apple","🍎","red","fruit","fruit","cool",""],["Bartlett pear","🍐","green","fruit","fruit","cool",""],["Bosc pear","🍐","brown","fruit","fruit","cool",""],["Anjou pear","🍐","green","fruit","fruit","cool",""],["Concord grape","🍇","purple","vine","fruit","cool",""],["Muscadine grape","🍇","purple","vine","fruit","cool",""],["Bing cherry","🍒","red","fruit","fruit","neutral",""],["Rainier cherry","🍒","yellow","fruit","fruit","neutral",""],["Meyer lemon","🍋","yellow","fruit","fruit","cool",""],["Key lime","🍋","green","fruit","fruit","cool",""],["Cara cara orange","🍊","pink","fruit","fruit","cool",""],["Valencia orange","🍊","orange","fruit","fruit","cool",""],["Navel orange","🍊","orange","fruit","fruit","cool",""],["Seville orange","🍊","orange","fruit","fruit","cool","m"],["White peach","🍑","white","fruit","fruit","cool",""],["Donut peach","🍑","yellow","fruit","fruit","cool",""],["Italian plum","🍑","purple","fruit","fruit","cool",""],["Damson plum","🍑","purple","fruit","fruit","cool",""],["Black mission fig","🍑","black","fruit","fruit","neutral",""],["Medjool date","🍑","brown","fruit","fruit","warm",""],["Deglet noor date","🍑","brown","fruit","fruit","warm",""],["Hachiya persimmon","🍊","orange","fruit","fruit","cool",""],["Fuyu persimmon","🍊","orange","fruit","fruit","cool",""],["Ataulfo mango","🥭","yellow","fruit","fruit","warm",""],["Kent mango","🥭","orange","fruit","fruit","warm",""],["Ugli fruit","🍊","yellow","fruit","fruit","cool",""],
+["Roma tomato","🍅","red","vine","vegetable","cool",""],["Beefsteak tomato","🍅","red","vine","vegetable","cool",""],["San Marzano tomato","🍅","red","vine","vegetable","cool",""],["Grape tomato","🍅","red","vine","vegetable","cool",""],["Persian cucumber","🥒","green","vine","vegetable","cool",""],["English cucumber","🥒","green","vine","vegetable","cool",""],["Kirby cucumber","🥒","green","vine","vegetable","cool",""],["Red potato","🥔","red","root","vegetable","neutral",""],["Yukon gold potato","🥔","yellow","root","vegetable","neutral",""],["Fingerling potato","🥔","brown","root","vegetable","neutral",""],["Russet potato","🥔","brown","root","vegetable","neutral",""],["Chioggia beet","🍠","pink","root","vegetable","neutral","o"],["Watermelon radish","🍅","pink","root","vegetable","cool",""],["French breakfast radish","🍅","pink","root","vegetable","cool",""],["Baby spinach","🥬","green","leaf","vegetable","cool","o"],["Baby kale","🥬","green","leaf","vegetable","cool",""],["Curly kale","🥬","green","leaf","vegetable","cool",""],["Savoy cabbage","🥬","green","leaf","vegetable","cool",""],
+["Jalapeño","🌶️","green","bush","vegetable","warm",""],["Serrano","🌶️","green","bush","vegetable","warm",""],["Habanero","🌶️","orange","bush","vegetable","warm",""],["Poblano","🌶️","green","bush","vegetable","warm",""],["Anaheim pepper","🌶️","green","bush","vegetable","warm",""],["Thai chili","🌶️","red","bush","vegetable","warm",""],["Banana pepper","🌶️","yellow","bush","vegetable","warm",""],["Shishito","🌶️","green","bush","vegetable","warm",""],
+["Anise hyssop","🌿","purple","leaf","herb","warm",""],["Bee balm","🌺","red","flower","herb","warm",""],["Winter savory","🌿","green","leaf","herb","warm",""],["Summer savory","🌿","green","leaf","herb","warm",""],["Lovage","🌿","green","leaf","herb","warm",""],["Salad burnet","🌿","green","leaf","herb","cool",""],["Vietnamese coriander","🌿","green","leaf","herb","warm",""],["Culantro","🌿","green","leaf","herb","warm",""],["Perilla leaf","🌿","purple","leaf","herb","warm",""],["Stevia leaf","🌿","green","leaf","herb","cool",""],
+["Oat milk","🥛","white","brew","milk","neutral",""],["Almond milk","🥛","white","brew","milk","neutral",""],["Coconut milk","🥛","white","brew","milk","cool",""],["Rice milk","🥛","white","brew","milk","neutral",""],["Soy milk","🥛","white","brew","milk","cool",""],["Hemp milk","🥛","white","brew","milk","neutral",""],["Cashew milk","🥛","white","brew","milk","neutral",""],["Prune juice","🍑","purple","fruit","juice","warm",""],["Fresh apple cider","🍎","brown","fruit","juice","neutral",""],["Concord grape juice","🍇","purple","vine","juice","cool",""],["Cranberry juice","🫐","red","bush","juice","cool",""],["Fresh orange juice","🍊","orange","fruit","juice","cool",""],["Ginger shot","🫚","yellow","root","juice","warm",""],["Turmeric shot","🟠","orange","root","juice","warm","m"],["Wheatgrass shot","🌱","green","seed","juice","cool",""],["Switchel","🍯","yellow","brew","ferment","warm",""],["Horchata","🥛","white","seed","milk","cool",""],["Agua de jamaica","🌺","red","flower","juice","cool","m"],["Tepache","🍍","yellow","brew","ferment","cool",""],["Coconut kefir","🥥","white","brew","ferment","cool",""],
+["Kamut","🌾","brown","seed","grain","neutral",""],["Einkorn","🌾","brown","seed","grain","neutral",""],["Fonio","🌾","yellow","seed","grain","warm",""],["Job's tears","🌾","white","seed","grain","cool",""]
+];
+
+/* ============ DERIVATION ============ */
+const CENTERS=[
+ ['root','Root','#c0392b','grounding, safety, stamina'],
+ ['sacral','Sacral','#e67e22','flow, creativity, joy'],
+ ['solar','Solar','#f1c40f','drive, digestion, confidence'],
+ ['heart','Heart','#27ae60','love, openness, breath'],
+ ['throat','Throat','#2980b9','voice, truth, expression'],
+ ['eye','Third Eye','#6c5ce7','clarity, intuition, focus'],
+ ['crown','Crown','#9b8bbf','stillness, connection, rest']
+];
+const C2CEN={red:'root',brown:'root',black:'root',orange:'sacral',pink:'heart',yellow:'solar',green:'heart',blue:'throat',purple:'eye',white:'crown'};
+const PHYTO={red:['lycopene & red anthocyanins','the red pigments studied for heart and cellular health'],
+ orange:['beta-carotene & carotenoids','orange pigments your body can turn into vitamin A'],
+ yellow:['lutein, zeaxanthin & flavonoids','yellow pigments linked to eye and skin health'],
+ green:['chlorophyll & glucosinolates','the green machinery of light, plus the sharp compounds of the brassica family'],
+ blue:['anthocyanins','the rare blue pigments studied for memory and vessels'],
+ purple:['anthocyanins & resveratrol-class compounds','deep purple pigments concentrated where sun meets skin'],
+ white:['allicin, quercetin & polysaccharides','pale but potent — the allium and mushroom families\u2019 signature compounds'],
+ brown:['lignans, minerals & fiber','earth-toned foods dense in slow, steady nourishment'],
+ pink:['betalains & gentle anthocyanins','blushing pigments with antioxidant character'],
+ black:['concentrated anthocyanins & minerals','the darkest foods carry the densest pigments']};
+const GROWTXT={root:'grows beneath the soil — traditions read that as grounding',leaf:'grows as leaf, reaching for light — light and cleansing',stalk:'grows as stalk — structure and flow',fruit:'ripens above ground in the sun — gathered sweetness',vine:'climbs a vine — expansive, water-rich',bush:'ripens on a bush — gathered close to earth',flower:'is the plant\u2019s flower — its lightest, most delicate part',fungus:'is a fungus — of the dark, the damp, and the in-between',seed:'is a seed — a whole future packed small',aquatic:'comes from water — cooling by nature',brew:'is drawn into water — the gentlest way to take a plant'};
+const CAUT={p:'pregnancy: check first',m:'can interact with meds',o:'high oxalate',c:'caffeine',k:'must be cooked'};
+
+function build(){
+  const items=ROWS.map((r,i)=>({id:i,n:r[0],e:r[1],col:r[2],grow:r[3],cat:r[4],en:r[5],fl:r[6],cen:C2CEN[r[2]]||'heart',prep:null}));
+  const pro=[];
+  ROWS.forEach((r,i)=>{
+    const base={n:r[0],e:r[1],col:r[2],grow:r[3],cat:r[4],en:r[5],fl:r[6],cen:C2CEN[r[2]]||'heart'};
+    if(['vegetable','mushroom','sea vegetable'].includes(r[4])&&!/cooked|brewed/.test(r[0])){
+      if(!r[6].includes('k'))pro.push({...base,id:1000+pro.length,n:r[0]+' — raw',en:'cool',prep:'Raw: crisper, cooler, more cleansing — best midday and in warm seasons.'});
+      pro.push({...base,id:1000+pro.length,n:r[0]+' — cooked',en:r[5]==='cool'?'neutral':'warm',prep:'Cooked: softened, warmed, easier to digest — best evenings and cold seasons.'});
+    }
+    if(r[4]==='herb'&&!/cooked/.test(r[0])){
+      pro.push({...base,id:1000+pro.length,n:r[0]+' — dried',en:'warm',prep:'Dried: concentrated and warmer than fresh — a pinch goes further.'});
+      pro.push({...base,id:1000+pro.length,n:r[0]+' — fresh infusion',cat:'infusion',grow:'brew',prep:'Steeped fresh: the gentlest, most cooling way to take this herb.'});
+    }
+    if(r[4]==='spice'&&!/ground|dried/.test(r[0])){
+      pro.push({...base,id:1000+pro.length,n:r[0]+' — whole, toasted',en:'warm',prep:'Toasted whole: aromatics wake up; warmth deepens.'});
+    }
+    if(r[4]==='fruit'&&/apple|banana|mango|fig|apricot|date|pineapple|cherr|cranberr|goji|mulberr|grape|peach|persimmon|plum|papaya|coconut|blueberr|strawberr|tamarind|pear/i.test(r[0])&&!/dried|cooked|green/.test(r[0].toLowerCase())){
+      pro.push({...base,id:1000+pro.length,n:r[0]+' — dried',en:'warm',prep:'Dried: sugars concentrated, energy denser — a grounding, wintery form. Small handfuls.'});
+    }
+    if(r[4]==='fruit'&&/orange|lemon|lime|grapefruit|pomegranate|watermelon|pineapple|apple|grape|cherr|carrot|mango|peach/i.test(r[0])&&!/dried|cooked/.test(r[0].toLowerCase())){
+      pro.push({...base,id:1000+pro.length,n:r[0]+' — juiced',cat:'juice',en:'cool',prep:'Juiced: faster, lighter, and cooler than the whole fruit — the fiber stays behind, so treat it as a drink, not a meal.'});
+    }
+    if(r[4]==='grain'&&!/cooked/.test(r[0])){
+      pro.push({...base,id:1000+pro.length,n:r[0]+' — sprouted',en:'cool',grow:'seed',prep:'Sprouted: the seed wakes up — traditions read sprouted grains as lighter and more alive; easier on digestion for many.'});
+    }
+    if(r[4]==='tea'){
+      pro.push({...base,id:1000+pro.length,n:r[0]+' — iced',en:'cool',prep:'Iced: the same leaf, turned cooling — a summer and overactive-state form.'});
+    }
+    if(r[4]==='nut'){
+      pro.push({...base,id:1000+pro.length,n:r[0]+' — soaked',en:'neutral',prep:'Soaked overnight: softened and gentler — traditions favor soaked nuts for easier digestion.'});
+    }
+    if(r[4]==='legume'&&!/cooked|sprout/.test(r[0].toLowerCase())){
+      pro.push({...base,id:1000+pro.length,n:r[0]+' — sprouted',en:'cool',prep:'Sprouted: lighter and greener in spirit than the cooked bean — a living form of the same seed.'});
+    }
+  });
+  return {free:items,pro};
+}
+const DB=build();
+function all(){return S.pro?DB.free.concat(DB.pro):DB.free;}
+
+/* ============ STATE ============ */
+const $=id=>document.getElementById(id);
+const KEY='nectar.v1';
+let S=Object.assign({pro:false},(()=>{try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return{}}})());
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function toast(t){const x=$('toast');x.textContent=t;x.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>x.classList.remove('on'),2600)}
+let sel={cen:'root',st:'low'};
+
+/* ============ BALANCE VIEW ============ */
+const MOODS=[['😰 anxious / scattered','root','low'],['🥱 low energy','solar','low'],['💔 heavy-hearted','heart','low'],['🗣 unheard / holding words in','throat','low'],['🌫 foggy, can\u2019t focus','eye','low'],['🔥 irritable / running hot','solar','high'],['😵 overstimulated','crown','high'],['🎨 uninspired','sacral','low'],['🌙 can\u2019t wind down','crown','low']];
+$('centerRow').innerHTML=CENTERS.map(c=>`<button class="cbtn ${c[0]===sel.cen?'on':''}" data-v="${c[0]}" style="--cc:${c[2]}"><span class="dot"></span><div class="cn">${c[1]}</div><div class="cs">${c[3]}</div></button>`).join('');
+$('centerRow').querySelectorAll('.cbtn').forEach(b=>b.onclick=()=>{sel.cen=b.dataset.v;
+  $('centerRow').querySelectorAll('.cbtn').forEach(x=>x.classList.toggle('on',x===b));renderBal();});
+$('stateRow').querySelectorAll('.sbtn').forEach(b=>b.onclick=()=>{sel.st=b.dataset.v;
+  $('stateRow').querySelectorAll('.sbtn').forEach(x=>x.classList.toggle('on',x===b));renderBal();});
+$('moodRow').innerHTML=MOODS.map((m,i)=>`<button class="mood" data-i="${i}">${m[0]}</button>`).join('');
+$('moodRow').querySelectorAll('.mood').forEach(b=>b.onclick=()=>{const m=MOODS[+b.dataset.i];
+  sel.cen=m[1];sel.st=m[2];
+  $('centerRow').querySelectorAll('.cbtn').forEach(x=>x.classList.toggle('on',x.dataset.v===sel.cen));
+  $('stateRow').querySelectorAll('.sbtn').forEach(x=>x.classList.toggle('on',x.dataset.v===sel.st));
+  renderBal();toast('Matched to your '+CENTERS.find(c=>c[0]===sel.cen)[1]+' center');});
+
+function pickFor(cen,st,n){
+  const pool=all();
+  let cand;
+  if(st==='high'){ // overactive: cooling, watery, light — mostly same-color cooling + green leafy + waters
+    cand=pool.filter(v=>(v.cen===cen&&v.en!=='warm')||(v.en==='cool'&&['leaf','aquatic','vine','flower'].includes(v.grow)));
+  }else if(st==='low'){ // depleted: feed the color + grounding/warming forms
+    cand=pool.filter(v=>v.cen===cen&&(v.en!=='cool'||['root','seed','fungus'].includes(v.grow)||st==='low'));
+    if(cen==='root')cand=cand.concat(pool.filter(v=>v.grow==='root'));
+  }else{ cand=pool.filter(v=>v.cen===cen); }
+  const seen=new Set(),out=[];
+  cand.sort(()=>Math.random()-.5);
+  for(const v of cand){ if(!seen.has(v.n)){seen.add(v.n);out.push(v);} if(out.length>=n)break; }
+  return out;
+}
+function whyLine(v,cen,st){
+  const c=CENTERS.find(x=>x[0]===cen)[1];
+  if(st==='high')return v.en==='cool'?`Cooling and light — it settles an overactive ${c} center rather than feeding the fire.`:`Its ${v.col} nature speaks to the ${c} center while staying gentle.`;
+  if(st==='low')return `Its ${v.col} color and ${v.grow==='root'?'under-the-earth growth':'character'} are the classic food-signature for feeding a depleted ${c} center.`;
+  return `A steady ${c}-center staple — the color says it belongs on this plate.`;
+}
+function card(v,why){
+  const ph=PHYTO[v.col]||['plant compounds',''];
+  const cauts=(v.fl||'').split('').map(f=>CAUT[f]).filter(Boolean);
+  const cdot=CENTERS.find(c=>c[0]===v.cen);
+  return `<div class="vc">${cauts.length?`<span class="caut">⚠ ${cauts[0]}</span>`:''}
+    <span class="ve">${v.e}</span><h4>${v.n}</h4>
+    <div class="vm"><span class="cdot" style="background:${cdot[2]}"></span>${cdot[1]} · ${v.cat} · ${v.en==='warm'?'🔥 warming':v.en==='cool'?'❄️ cooling':'⚖️ neutral'}</div>
+    <p><b>${ph[0]}</b> — ${ph[1]}. This one ${GROWTXT[v.grow]}.${v.prep?' <i>'+v.prep+'</i>':''}</p>
+    ${why?`<div class="why">${why}</div>`:''}
+    ${cauts.length>1?`<div>${cauts.slice(1).map(c=>'<span class="tag">⚠ '+c+'</span>').join('')}</div>`:''}</div>`;
+}
+function renderBal(){
+  const c=CENTERS.find(x=>x[0]===sel.cen);
+  $('balSub').textContent=(sel.st==='low'?'Feeding a depleted ':sel.st==='high'?'Settling an overactive ':'Maintaining a healthy ')+c[1]+' center — '+c[3]+'.';
+  const picks=pickFor(sel.cen,sel.st,S.pro?9:6);
+  $('balGrid').innerHTML=picks.map(v=>card(v,whyLine(v,sel.cen,sel.st))).join('')+
+    (S.pro?'':`<div class="vc" style="display:grid;place-items:center;text-align:center;border-style:dashed;cursor:pointer" onclick="openPro()"><div><div style="font-size:30px">🔓</div><h4>+ ${DB.pro.length} more in Pro</h4><p>Preparations, deeper picks, and the 7-day plan</p></div></div>`);
+  plate();
+  $('upsellSec').innerHTML=S.pro?'':`<div class="locknote"><b>Nectar Pro — the full apothecary.</b> ${DB.free.length+DB.pro.length} entries (every preparation: raw vs cooked, fresh vs dried, leaf vs infusion — because ginger dried is not ginger fresh), richer rebalance picks, and a 7-day rebalancing plan you can print.<br>
+    <a class="lockbtn" href="${BUY_URL}" target="_blank" rel="noopener">Get Pro — ${PRICE_TXT} →</a>
+    <button class="lockbtn" style="background:#fff;color:#8a6430;border:1px solid #eed9b8" onclick="openPro()">I have a code</button></div>`;
+}
+function plate(){
+  const morning=pickFor(sel.cen,sel.st,20).filter(v=>v.en!=='cool'||sel.st==='high')[0]||pickFor(sel.cen,sel.st,1)[0];
+  const mid=pickFor(sel.cen,sel.st,20).filter(v=>['vegetable','fruit','legume','grain','mushroom'].includes(v.cat))[0]||pickFor(sel.cen,sel.st,1)[0];
+  const eve=pickFor(sel.cen,sel.st,20).filter(v=>['tea','infusion','water','juice'].includes(v.cat))[0]||all().find(v=>v.cat==='infusion');
+  $('plateBox').innerHTML=`
+    <div class="prow"><span class="pt">🌅</span><div><b>Dawn — ${morning.n} ${morning.e}</b><span>${whyLine(morning,sel.cen,sel.st)}</span></div></div>
+    <div class="prow"><span class="pt">☀️</span><div><b>Midday — ${mid.n} ${mid.e}</b><span>Build the day's main plate around it: ${PHYTO[mid.col][0]}.</span></div></div>
+    <div class="prow"><span class="pt">🌙</span><div><b>Dusk — ${eve.n} ${eve.e}</b><span>${eve.en==='cool'?'A cooling sip to close the day.':'A warm sip to settle the evening.'}</span></div></div>`;
+}
+$('plateBtn').onclick=()=>plate();
+$('weekBtn').onclick=()=>{
+  if(!S.pro)return openPro('The 7-day plan is a Pro feature.');
+  const days=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+  openModal('Your 7-day rebalancing plan',
+    '<p>For the '+CENTERS.find(c=>c[0]===sel.cen)[1]+' center ('+(sel.st==='low'?'feeding':sel.st==='high'?'settling':'maintaining')+'). Print this page to keep it.</p>'+
+    days.map(d=>{const a=pickFor(sel.cen,sel.st,3);return '<p style="border-top:1px dashed var(--line);padding-top:8px"><b>'+d+':</b> '+a.map(v=>v.e+' '+v.n).join(' · ')+'</p>';}).join('')+
+    '<button class="bigbtn" style="margin-top:10px" onclick="window.print()">🖨 Print</button>');
+};
+
+/* ============ LIBRARY ============ */
+let shown=60;
+function fillFilters(){
+  const pool=all();
+  const cats=[...new Set(pool.map(v=>v.cat))].sort();
+  $('fCat').innerHTML='<option value="">All categories</option>'+cats.map(c=>`<option>${c}</option>`).join('');
+  const cols=[...new Set(pool.map(v=>v.col))].sort();
+  $('fColor').innerHTML='<option value="">All colors</option>'+cols.map(c=>`<option>${c}</option>`).join('');
+  $('fCen').innerHTML='<option value="">All centers</option>'+CENTERS.map(c=>`<option value="${c[0]}">${c[1]}</option>`).join('');
+  $('libCount').innerHTML=S.pro
+    ? `<b>${pool.length} victuals</b> — the full apothecary, preparations included.`
+    : `<b>${DB.free.length} victuals free</b> · the Pro apothecary holds <b>${DB.free.length+DB.pro.length}</b> (every preparation counted, honestly — raw vs cooked, fresh vs dried, leaf vs infusion).`;
+}
+function renderLib(){
+  const q=($('q').value||'').toLowerCase();
+  const fc=$('fCat').value,fo=$('fColor').value,fn=$('fCen').value,fe=$('fEn').value;
+  const res=all().filter(v=>(!q||v.n.toLowerCase().includes(q))&&(!fc||v.cat===fc)&&(!fo||v.col===fo)&&(!fn||v.cen===fn)&&(!fe||v.en===fe));
+  $('resCount').textContent=res.length+' match'+(res.length===1?'':'es');
+  $('libGrid').innerHTML=res.slice(0,shown).map(v=>card(v,'')).join('')||'<p style="color:var(--faint)">Nothing matches — loosen a filter.</p>';
+  $('moreBtn').style.display=res.length>shown?'inline-block':'none';
+}
+['q','fCat','fColor','fCen','fEn'].forEach(id=>{$(id).oninput=()=>{shown=60;renderLib();};$(id).onchange=()=>{shown=60;renderLib();};});
+$('moreBtn').onclick=()=>{shown+=60;renderLib();};
+
+/* ============ TABS / PRO / MODAL ============ */
+function showBal(){$('v-bal').classList.add('on');$('v-lib').classList.remove('on');$('tabBal').classList.add('on');$('tabLib').classList.remove('on');}
+function showLib(){$('v-lib').classList.add('on');$('v-bal').classList.remove('on');$('tabLib').classList.add('on');$('tabBal').classList.remove('on');fillFilters();renderLib();}
+$('tabBal').onclick=showBal;$('tabLib').onclick=showLib;
+function openModal(t,b){$('mTitle').textContent=t;$('mBody').innerHTML=b;$('modal').classList.add('on');}
+$('mClose').onclick=()=>$('modal').classList.remove('on');
+$('modal').onclick=e=>{if(e.target.id==='modal')$('modal').classList.remove('on');};
+function checkCode(c){c=(c||'').trim().toUpperCase();
+  if(!/^NEC-[A-Z0-9]{4}-[A-Z0-9]{4}$/.test(c))return false;
+  const b=c.replace(/[^A-Z0-9]/g,'').slice(3);let t=0;for(const ch of b)t+=ch.charCodeAt(0);
+  return t%37===13;}
+function openPro(msg){
+  openModal('Nectar Pro',`<p>${msg||'One unlock, yours forever on this device:'}</p>
+   <ul style="color:var(--dim);font-size:13.5px;line-height:1.9;padding-left:18px;margin:8px 0 14px">
+     <li>The full apothecary — ${DB.free.length+DB.pro.length} entries with every preparation</li>
+     <li>Richer rebalance picks (9 per reading)</li>
+     <li>Printable 7-day rebalancing plans</li></ul>
+   <a class="lockbtn" href="${BUY_URL}" target="_blank" rel="noopener">Get Pro — ${PRICE_TXT} →</a>
+   <div style="display:flex;gap:8px;margin-top:14px"><input class="tin" id="codeIn" placeholder="NEC-XXXX-XXXX" style="flex:1">
+   <button class="lockbtn" id="applyCode" style="background:var(--sage);margin:0">Apply</button></div>`);
+  $('applyCode').onclick=()=>{
+    if(checkCode($('codeIn').value)){S.pro=true;save();proUI();$('modal').classList.remove('on');toast('🎉 Pro unlocked — the full apothecary is open');fillFilters();renderBal();renderLib();}
+    else toast('That code doesn\u2019t look right');};
+}
+function proUI(){$('proBtn').textContent=S.pro?'✓ Pro':'Go Pro';$('proBtn').className='pill '+(S.pro?'prodone':'pro');
+  $('weekLock').style.display=S.pro?'none':'inline';}
+$('proBtn').onclick=()=>S.pro?toast('Pro is active on this device ✓'):openPro();
+
+/* boot */
+proUI();renderBal();fillFilters();
+</script>
+</body>
+</html>
