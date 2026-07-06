@@ -12,7 +12,7 @@
 <meta name="apple-mobile-web-app-title" content="Nectar">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script>
-const GA_ID="";
+const GA_ID="G-Y1JGXQN4Q6";
 if(GA_ID){const s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config',GA_ID);}
 </script>
 <style>
@@ -159,7 +159,7 @@ footer{padding:34px 0 56px;text-align:center;color:var(--faint);font-size:11.5px
 </div>
 
 <footer><div class="wrap">
-  Nectar · a <a href="https://nesoai.github.io/learning-studio/">Boundless Learning Studio</a> app · sister of <a href="https://nesoai.github.io/lumen/">Lumen</a> · v1.0<br>
+  Nectar · a <a href="https://nesoai.github.io/learning-studio/">Boundless Learning Studio</a> app · sister of <a href="https://nesoai.github.io/lumen/">Lumen</a> · v1.1<br>
   Nectar blends traditional food-energetics frameworks with modern phytonutrient science for education and reflection — it is <b>not medical advice</b>, does not diagnose or treat any condition, and is no substitute for your doctor or dietitian. If you're pregnant, nursing, or on medications, check herbs and large dietary changes with a professional first (some foods, like grapefruit, genuinely interact with medicines). Buy from stores and growers — Nectar never teaches wild foraging.
 </div></footer>
 
@@ -168,7 +168,7 @@ footer{padding:34px 0 56px;text-align:center;color:var(--faint);font-size:11.5px
 
 <script>
 /* ============ NECTAR v1.0 — config ============ */
-const BUY_URL="#";        // ← Gumroad / Stripe payment link for Pro
+const BUY_URL="mailto:boundless.mbf@gmail.com?subject=Requesting%20Nectar%20Pro%20%28%2414%29&body=Hi%20Boundless%20%E2%80%94%20I%20would%20like%20Nectar%20Pro.%20Please%20send%20my%20unlock%20code%20and%20how%20to%20pay."; // ← swap for the Gumroad link when live
 const PRICE_TXT="$14 one-time";
 
 /* ============ DATA — compact rows: [name, emoji, color, grow, cat, energy, flags] ============
@@ -333,7 +333,7 @@ function renderBal(){
     (S.pro?'':`<div class="vc" style="display:grid;place-items:center;text-align:center;border-style:dashed;cursor:pointer" onclick="openPro()"><div><div style="font-size:30px">🔓</div><h4>+ ${DB.pro.length} more in Pro</h4><p>Preparations, deeper picks, and the 7-day plan</p></div></div>`);
   plate();
   $('upsellSec').innerHTML=S.pro?'':`<div class="locknote"><b>Nectar Pro — the full apothecary.</b> ${DB.free.length+DB.pro.length} entries (every preparation: raw vs cooked, fresh vs dried, leaf vs infusion — because ginger dried is not ginger fresh), richer rebalance picks, and a 7-day rebalancing plan you can print.<br>
-    <a class="lockbtn" href="${BUY_URL}" target="_blank" rel="noopener">Get Pro — ${PRICE_TXT} →</a>
+    <a class="lockbtn" href="${BUY_URL}" target="_blank" rel="noopener">Request Pro — ${PRICE_TXT} →</a>
     <button class="lockbtn" style="background:#fff;color:#8a6430;border:1px solid #eed9b8" onclick="openPro()">I have a code</button></div>`;
 }
 function plate(){
@@ -396,7 +396,7 @@ function openPro(msg){
      <li>The full apothecary — ${DB.free.length+DB.pro.length} entries with every preparation</li>
      <li>Richer rebalance picks (9 per reading)</li>
      <li>Printable 7-day rebalancing plans</li></ul>
-   <a class="lockbtn" href="${BUY_URL}" target="_blank" rel="noopener">Get Pro — ${PRICE_TXT} →</a>
+   <a class="lockbtn" href="${BUY_URL}" target="_blank" rel="noopener">Request Pro — ${PRICE_TXT} →</a>
    <div style="display:flex;gap:8px;margin-top:14px"><input class="tin" id="codeIn" placeholder="NEC-XXXX-XXXX" style="flex:1">
    <button class="lockbtn" id="applyCode" style="background:var(--sage);margin:0">Apply</button></div>`);
   $('applyCode').onclick=()=>{
